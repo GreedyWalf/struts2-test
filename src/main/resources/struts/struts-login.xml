@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="login" extends="base" namespace="/login">
+        <!-- 使用动态方法调用方式，例如：http://localhost:8888/struts/login/login.login.action -->
+        <action name="login.*" class="com.qs.action.LoginAction" method="{1}">
+            <!-- 这里的target值为LoginAction类中render方法中指定的视图名 -->
+            <result name="common" type="dispatcher">
+                /WEB-INF/page/login/${target}.jsp
+            </result>
+
+            <result name="index" type="dispatcher">
+                /WEB-INF/page/index/index.jsp
+            </result>
+        </action>
+    </package>
+</struts>
