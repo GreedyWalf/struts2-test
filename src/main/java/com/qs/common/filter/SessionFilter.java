@@ -27,8 +27,6 @@ public class SessionFilter implements Filter {
             userInfo = (User) session.getAttribute("userInfo");
         }
 
-        //静态资源不拦截
-
 
         String ssoUserName = request.getParameter("ssoUserName");
         System.out.println("ssoUserName=" + ssoUserName);
@@ -46,7 +44,7 @@ public class SessionFilter implements Filter {
                 return;
             }
 
-            request.getRequestDispatcher("transLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 

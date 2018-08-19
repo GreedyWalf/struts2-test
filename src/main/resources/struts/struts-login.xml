@@ -4,8 +4,9 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-    <package name="login" extends="base" namespace="/login">
-        <!-- 使用动态方法调用方式，例如：http://localhost:8888/struts/login/login.login.action -->
+    <!-- extends="base"，引用base对应的struts配置文件 -->
+    <package name="login" extends="base" namespace="/">
+        <!-- 使用动态方法调用方式，例如：http://localhost:8888/struts/login.login.action -->
         <action name="login.*" class="com.qs.action.LoginAction" method="{1}">
             <!-- 这里的target值为LoginAction类中render方法中指定的视图名 -->
             <result name="common" type="dispatcher">

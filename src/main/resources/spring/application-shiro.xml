@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 必须设置 -->
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.do"/>
+        <property name="successUrl" value="index.jsp"/>
+
+         <!--自定义shiro过滤器-->
+        <property name="filters">
+            <map>
+                <entry key="myFilter">
+                    <bean class="com.qs.realm.MyShiroFilter"/>
+                </entry>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 对静态资源设置匿名访问 -->
+                /static/** = anon
+                /login.do = anon
+                /login.login.do = anon
+                <!-- /** = authc 所有url都必须认证通过才可以访问-->
+                <!--/** = myFilter-->
+            </value>
+        </property>
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="customRealm" />
+    </bean>
+
+    <!-- 自定义 realm -->
+    <bean id="customRealm" class="com.qs.realm.CustomRealm"/>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+</beans>

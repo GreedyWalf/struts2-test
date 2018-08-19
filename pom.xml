@@ -77,7 +77,6 @@
             <version>${jsp.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-lgpl</artifactId>
@@ -89,6 +88,17 @@
             <version>1.7.1</version>
         </dependency>
 
+        <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
         <!--jetty启动最少依赖开始-->
         <dependency>

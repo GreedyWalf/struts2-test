@@ -8,9 +8,28 @@
     <constant name="struts.action.extension" value="do,action"/>
 
     <package name="base" extends="struts-default" namespace="/">
-        <action name="index" class="com.qs.action.IndexAction" method="index">
+        <interceptors>
+            <!-- 自定义拦截器 -->
+            <interceptor name="commonCheck" class="com.qs.common.interceptor.CommonCheckInterceptor" />
+            <!-- 自定义拦截器栈 -->
+            <interceptor-stack name="mydefault">
+                <interceptor-ref name="commonCheck" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+
+        <!-- 这句是设置所有Action自动调用的拦截器堆栈 -->
+        <default-interceptor-ref name="mydefault"/>
+
+        <!-- 定义全局Result -->
+        <global-results>
+            <!-- 当返回error视图名时，转入/error.jsp页面 -->
+            <result name="error">error.jsp</result>
+        </global-results>
+
+        <action name="indexAction.*" class="com.qs.action.IndexAction" method="{1}">
             <result name="index" type="dispatcher">
-                /WEB-INF/page/index/index.jsp
+                index.jsp
             </result>
         </action>
     </package>

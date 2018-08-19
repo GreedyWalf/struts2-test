@@ -8,4 +8,8 @@ public class IndexAction extends BaseAction<IndexModel> {
     public String index(){
         return "index";
     }
+
+    public String login(){
+        return "login";
+    }
 }

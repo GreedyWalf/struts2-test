@@ -39,6 +39,11 @@ public abstract class BaseAction<M> extends ActionSupport implements ModelDriven
         return "common";
     }
 
+    /**
+     * 使用render方法，返回的逻辑视图名为common，对应struts配置文件中的name属性
+     * @param target 代表返回的视图文件名
+     * @return
+     */
     public String render(String target) {
         this.setTarget(target);
         return "common";

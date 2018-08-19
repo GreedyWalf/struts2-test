@@ -1,9 +1,7 @@
 package com.qs.common.servlet;
 
 import com.qs.entity.User;
-import com.sun.deploy.net.HttpResponse;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,10 +26,6 @@ public class SsoLoginServlet extends HttpServlet {
             session.setAttribute("userInfo",user);
             //登陆成功，跳转到首页
             response.sendRedirect("login/login.login.do?ssoLogin=true");
-        }else{
-
         }
-
-
     }
 }

@@ -13,25 +13,12 @@
 </head>
 <body>
 <div>
-    <form id="loginForm" action="login/login.login.do">
+    <form id="loginForm" action="login.login.do">
         用户名：<input type="text" name="userName"/><br>
         密码：<input type="password" name="password"/><br>
         <input type="submit" value="登录">
     </form>
 
-    <img id="aaa" src="" alt="电子签购单">
 </div>
 </body>
-<script>
-    $(function () {
-//        alert("aaa");
-        $.post("login/login.getTxnElecImg.do", {}, function (data) {
-            console.log(data);
-            var msg = decodeURI(data.bytes);
-            console.log(msg);
-            $("#aaa").attr("src", "data:image/bmp;base64," + msg);
-        });
-    })
-
-</script>
 </html>
