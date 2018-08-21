@@ -24,7 +24,7 @@
                 /login.do = anon
                 /login.login.do = anon
                 <!-- /** = authc 所有url都必须认证通过才可以访问-->
-                <!--/** = myFilter-->
+                /** = myFilter
             </value>
         </property>
     </bean>

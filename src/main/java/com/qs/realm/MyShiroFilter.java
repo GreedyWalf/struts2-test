@@ -25,6 +25,11 @@ public class MyShiroFilter extends AuthorizationFilter {
             return false;
         }
 
+        if(requestURL.toString().contains("index")){
+            response.sendRedirect("http://www.baidu.com");
+            return false;
+        }
+
         //返回true等同于chain.doFilter(request,response)
         return true;
     }
