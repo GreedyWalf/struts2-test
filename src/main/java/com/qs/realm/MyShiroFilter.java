@@ -17,13 +17,13 @@ public class MyShiroFilter extends AuthorizationFilter {
         HttpServletRequest request = WebUtils.toHttp(req);
         HttpServletResponse response = WebUtils.toHttp(res);
         StringBuffer requestURL = request.getRequestURL();
-        if (requestURL.toString().contains("login")) {
-            response.setContentType("text/html;charset=utf-8");
-            PrintWriter out = response.getWriter();
-            out.write("<script>alert('aaaaa')</script>");
-            out.flush();
-            return false;
-        }
+//        if (requestURL.toString().contains("login")) {
+//            response.setContentType("text/html;charset=utf-8");
+//            PrintWriter out = response.getWriter();
+//            out.write("<script>alert('aaaaa')</script>");
+//            out.flush();
+//            return false;
+//        }
 
         if(requestURL.toString().contains("index")){
             response.sendRedirect("http://www.baidu.com");
